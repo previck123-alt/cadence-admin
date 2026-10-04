@@ -1,0 +1,648 @@
+/*==========================================================
+    DASHBOARD HEADER
+==========================================================*/
+
+.dashboardHeader{
+
+    position:sticky;
+
+    top:0;
+
+    z-index:999;
+
+    width:100%;
+
+    height:82px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:0 32px;
+
+    border-bottom:1px solid rgba(226,232,240,.8);
+
+    backdrop-filter:blur(18px);
+
+    -webkit-backdrop-filter:blur(18px);
+
+    box-shadow:0 8px 30px rgba(15,23,42,.05);
+
+}
+
+/*==========================================================
+    LEFT SECTION
+==========================================================*/
+
+.headerLeft{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
+
+}
+
+.titleSection{
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+.breadcrumb{
+
+    font-size:.78rem;
+
+    font-weight:600;
+
+    letter-spacing:1px;
+
+    text-transform:uppercase;
+
+    color:#94a3b8;
+
+    margin-bottom:4px;
+
+}
+
+.pageTitle{
+
+    margin:0;
+
+    font-size:1.8rem;
+
+    font-weight:700;
+
+    letter-spacing:-.5px;
+
+}
+
+/*==========================================================
+    MOBILE MENU
+==========================================================*/
+
+.mobileMenu{
+
+    width:48px;
+
+    height:48px;
+
+    border:none;
+
+    outline:none;
+
+    display:none;
+
+    justify-content:center;
+
+    align-items:center;
+
+    border-radius:16px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.mobileMenu span{
+
+    font-size:25px;
+
+}
+
+.mobileMenu:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:0 12px 24px rgba(37,99,235,.15);
+
+}
+
+.mobileMenu:active{
+
+    transform:scale(.96);
+
+}
+
+/*==========================================================
+    RIGHT SECTION
+==========================================================*/
+
+.headerRight{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:20px;
+
+}
+
+/*==========================================================
+    DIVIDER
+==========================================================*/
+
+.divider{
+
+    width:1px;
+
+    height:38px;
+
+    background:#e2e8f0;
+
+}
+
+/*==========================================================
+    NOTIFICATION
+==========================================================*/
+
+.notificationButton{
+
+    position:relative;
+
+    width:50px;
+
+    height:50px;
+
+    border:none;
+
+    outline:none;
+
+    border-radius:16px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.notificationButton span{
+
+    font-size:24px;
+
+}
+
+.notificationButton:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:0 14px 30px rgba(15,23,42,.08);
+
+}
+
+.notificationBadge{
+
+    position:absolute;
+
+    top:10px;
+
+    right:10px;
+
+    width:10px;
+
+    height:10px;
+
+    border-radius:50%;
+
+    background:#ef4444;
+
+    border:2px solid #ffffff;
+
+    animation:pulse 1.8s infinite;
+
+}
+
+@keyframes pulse{
+
+    0%{
+
+        transform:scale(1);
+
+    }
+
+    50%{
+
+        transform:scale(1.35);
+
+    }
+
+    100%{
+
+        transform:scale(1);
+
+    }
+
+}
+
+/*==========================================================
+    PROFILE CARD
+==========================================================*/
+
+.profileCard{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+    padding:8px 12px;
+
+    border:none;
+
+    background:transparent;
+
+    border-radius:18px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.profileCard:hover{
+
+    background:rgba(37,99,235,.05);
+
+    transform:translateY(-2px);
+
+}
+
+/*==========================================================
+    PROFILE AVATAR
+==========================================================*/
+
+.profileAvatar{
+
+    width:50px;
+    height:50px;
+
+    border-radius:50%;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    flex-shrink:0;
+
+    box-shadow:0 10px 24px rgba(15,23,42,.08);
+
+    transition:all .3s ease;
+
+}
+
+.profileAvatar span{
+
+    font-size:24px;
+
+}
+
+.profileCard:hover .profileAvatar{
+
+    transform:scale(1.08);
+
+}
+
+/*==========================================================
+    PROFILE INFO
+==========================================================*/
+
+.profileInfo{
+
+    display:flex;
+
+    flex-direction:column;
+
+    text-align:left;
+
+}
+
+.profileInfo h4{
+
+    margin:0;
+
+    font-size:.97rem;
+
+    font-weight:700;
+
+    line-height:1.2;
+
+}
+
+.profileInfo p{
+
+    margin:4px 0 0;
+
+    font-size:.78rem;
+
+    color:#94a3b8;
+
+    font-weight:500;
+
+}
+
+/*==========================================================
+    DROPDOWN ARROW
+==========================================================*/
+
+.arrow{
+
+    color:#94a3b8;
+
+    font-size:20px;
+
+    transition:transform .25s ease,color .25s ease;
+
+}
+
+.profileCard:hover .arrow{
+
+    transform:rotate(180deg);
+
+    color:#2563eb;
+
+}
+
+/*==========================================================
+    BUTTON STATES
+==========================================================*/
+
+.mobileMenu:focus-visible,
+.notificationButton:focus-visible,
+.profileCard:focus-visible{
+
+    outline:3px solid rgba(37,99,235,.18);
+
+    outline-offset:3px;
+
+}
+
+/*==========================================================
+    ACTIVE STATES
+==========================================================*/
+
+.mobileMenu:active,
+.notificationButton:active,
+.profileCard:active{
+
+    transform:scale(.97);
+
+}
+
+/*==========================================================
+    RESPONSIVE
+==========================================================*/
+
+@media (max-width:992px){
+
+    .dashboardHeader{
+
+        padding:0 22px;
+
+    }
+
+    .pageTitle{
+
+        font-size:1.5rem;
+
+    }
+
+}
+
+@media (max-width:768px){
+
+    .dashboardHeader{
+
+        height:74px;
+
+        padding:0 18px;
+
+    }
+
+    .mobileMenu{
+
+        display:flex;
+
+    }
+
+    .breadcrumb{
+
+        display:none;
+
+    }
+
+    .pageTitle{
+
+        font-size:1.25rem;
+
+    }
+
+    .profileInfo{
+
+        display:none;
+
+    }
+
+    .divider{
+
+        display:none;
+
+    }
+
+}
+
+@media (max-width:540px){
+
+    .dashboardHeader{
+
+        height:70px;
+
+        padding:0 14px;
+
+    }
+
+    .headerLeft{
+
+        gap:12px;
+
+    }
+
+    .headerRight{
+
+        gap:12px;
+
+    }
+
+    .pageTitle{
+
+        font-size:1.05rem;
+
+    }
+
+    .notificationButton{
+
+        width:44px;
+
+        height:44px;
+
+        border-radius:14px;
+
+    }
+
+    .notificationButton span{
+
+        font-size:21px;
+
+    }
+
+    .profileAvatar{
+
+        width:44px;
+
+        height:44px;
+
+    }
+
+    .profileAvatar span{
+
+        font-size:21px;
+
+    }
+
+}
+
+@media (max-width:400px){
+
+    .dashboardHeader{
+
+        padding:0 10px;
+
+    }
+
+    .pageTitle{
+
+        font-size:.95rem;
+
+    }
+
+    .notificationButton{
+
+        width:40px;
+
+        height:40px;
+
+    }
+
+    .notificationButton span{
+
+        font-size:19px;
+
+    }
+
+    .profileAvatar{
+
+        width:40px;
+
+        height:40px;
+
+    }
+
+    .profileAvatar span{
+
+        font-size:19px;
+
+    }
+
+}
+
+/*==========================================================
+    SMOOTH TRANSITIONS
+==========================================================*/
+
+.dashboardHeader *,
+.dashboardHeader *::before,
+.dashboardHeader *::after{
+
+    transition:
+        background-color .25s ease,
+        border-color .25s ease,
+        color .25s ease,
+        transform .25s ease,
+        box-shadow .25s ease,
+        opacity .25s ease;
+
+}
+
+/*==========================================================
+    HEADER ANIMATION
+==========================================================*/
+
+.dashboardHeader{
+
+    animation:headerFade .35s ease;
+
+}
+
+@keyframes headerFade{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(-10px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/*==========================================================
+    PREMIUM HOVER EFFECTS
+==========================================================*/
+
+.notificationButton:hover{
+    background:rgba(37,99,235,.08);
+}
+
+.profileCard:hover{
+
+    box-shadow:0 10px 28px rgba(15,23,42,.06);
+
+}
+
+/*==========================================================
+    DESKTOP POLISH
+==========================================================*/
+
+@media (min-width:1200px){
+
+    .dashboardHeader{
+
+        padding-left:36px;
+
+        padding-right:36px;
+
+    }
+
+}
+
+

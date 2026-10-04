@@ -1,0 +1,1052 @@
+/* ==========================================================
+   SCREEN LAYOUT
+========================================================== */
+
+.screenContainer {
+    display: flex;
+    min-height: 100vh;
+    background: #f4f7fb;
+    overflow: hidden;
+}
+
+/* ==========================================================
+   LEFT HERO PANEL
+========================================================== */
+
+.leftContainer {
+    position: relative;
+    width: 42%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+
+    background:
+        linear-gradient(145deg,
+            #003da6 0%,
+            #0055d4 40%,
+            #0b63ff 100%);
+}
+
+/* Background Glow */
+
+.leftContainer::before {
+    content: "";
+    position: absolute;
+
+    width: 550px;
+    height: 550px;
+
+    border-radius: 50%;
+
+    background: rgba(255,255,255,.08);
+
+    top: -180px;
+    right: -120px;
+
+    filter: blur(10px);
+}
+
+/* Bottom Glow */
+
+.leftContainer::after {
+    content: "";
+
+    position: absolute;
+
+    width: 420px;
+    height: 420px;
+
+    border-radius: 50%;
+
+    background: rgba(255,255,255,.05);
+
+    bottom: -160px;
+    left: -120px;
+}
+
+/* ==========================================================
+   HERO CONTENT
+========================================================== */
+
+.heroContent{
+
+    width:80%;
+    z-index:5;
+
+    color:#fff;
+
+}
+
+.logoBox{
+
+    display:flex;
+    align-items:center;
+    gap:16px;
+
+    margin-bottom:70px;
+
+}
+
+.logoCircle{
+
+    width:68px;
+    height:68px;
+
+    border-radius:18px;
+
+    background:rgba(255,255,255,.12);
+
+    backdrop-filter:blur(12px);
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    font-size:30px;
+    font-weight:700;
+
+    border:1px solid rgba(255,255,255,.25);
+
+}
+
+.logoBox h2{
+
+    font-size:28px;
+    font-weight:700;
+    letter-spacing:.5px;
+
+}
+
+.heroContent h1{
+
+    font-size:54px;
+    line-height:1.15;
+    font-weight:800;
+
+    margin-bottom:28px;
+
+}
+
+.heroContent p{
+
+    width:90%;
+
+    font-size:18px;
+
+    line-height:1.9;
+
+    color:rgba(255,255,255,.82);
+
+    margin-bottom:60px;
+
+}
+
+/* ==========================================================
+   FEATURES
+========================================================== */
+
+.heroFeatures{
+
+    display:flex;
+    flex-direction:column;
+    gap:24px;
+
+}
+
+.feature{
+
+    display:flex;
+    align-items:center;
+    gap:18px;
+
+}
+
+.feature span{
+
+    width:38px;
+    height:38px;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.15);
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    font-size:18px;
+    font-weight:700;
+
+}
+
+.feature p{
+
+    margin:0;
+
+    font-size:17px;
+
+    color:#fff;
+
+}
+
+/* ==========================================================
+   RIGHT PANEL
+========================================================== */
+
+.rightContainer{
+
+    flex:1;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    padding:60px;
+
+    overflow-y:auto;
+
+    background:
+        radial-gradient(circle at top right,
+        rgba(0,93,255,.05),
+        transparent 35%),
+        #f6f8fc;
+
+}
+
+/* ==========================================================
+   LOGIN CARD
+========================================================== */
+
+.rightformcontainer{
+
+    width:100%;
+    max-width:520px;
+
+}
+
+.loginCard{
+
+    background:#fff;
+
+    border-radius:26px;
+
+    padding:55px;
+
+    box-shadow:
+        0 25px 80px rgba(15,23,42,.08),
+        0 6px 20px rgba(15,23,42,.05);
+
+    border:1px solid rgba(226,232,240,.9);
+
+    transition:.35s ease;
+
+}
+
+.loginCard:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:
+        0 35px 90px rgba(15,23,42,.12),
+        0 10px 30px rgba(15,23,42,.08);
+
+}
+
+/* ==========================================================
+   HEADER
+========================================================== */
+
+.headerSection{
+
+    margin-bottom:45px;
+
+}
+
+.badge{
+
+    display:inline-flex;
+
+    padding:8px 16px;
+
+    border-radius:40px;
+
+    background:#eaf2ff;
+
+    color:#0057d8;
+
+    font-size:13px;
+
+    font-weight:700;
+
+    letter-spacing:1px;
+
+    text-transform:uppercase;
+
+    margin-bottom:20px;
+
+}
+
+.headerSection h2{
+
+    font-size:38px;
+
+    font-weight:800;
+
+    color:#1e293b;
+
+    margin-bottom:12px;
+
+}
+
+.headerSection p{
+
+    color:#64748b;
+
+    font-size:16px;
+
+    line-height:1.8;
+
+}
+
+/* ==========================================================
+   FORM
+========================================================== */
+
+.inputcontainer{
+    display:flex;
+    flex-direction:column;
+    gap:22px;
+    margin-bottom:30px;
+}
+
+.formCard{
+    width:100%;
+}
+
+/* ==========================================================
+   ACTION AREA
+========================================================== */
+
+.actionArea{
+    margin-top:15px;
+}
+
+.optionRow{
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    margin-bottom:28px;
+
+    gap:15px;
+
+}
+
+.rememberMe{
+
+    display:flex;
+    align-items:center;
+    gap:10px;
+
+    cursor:pointer;
+
+    user-select:none;
+
+    color:#475569;
+
+    font-size:14px;
+    font-weight:500;
+
+}
+
+.rememberMe input{
+
+    width:18px;
+    height:18px;
+
+    accent-color:#0057d8;
+
+    cursor:pointer;
+
+}
+
+.forgotPassword{
+
+    color:#0057d8;
+
+    font-size:14px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+}
+
+.forgotPassword:hover{
+
+    color:#003da6;
+
+    text-decoration:underline;
+
+}
+
+/* ==========================================================
+   SUBMIT BUTTON
+========================================================== */
+
+.submit{
+
+    width:100%;
+
+    margin-bottom:28px;
+
+}
+
+.submit button{
+
+    transition:
+        transform .25s,
+        box-shadow .25s,
+        opacity .25s !important;
+
+    box-shadow:
+        0 10px 25px rgba(0,87,216,.22);
+
+}
+
+.submit button:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:
+        0 18px 35px rgba(0,87,216,.30);
+
+}
+
+.submit button:active{
+
+    transform:scale(.98);
+
+}
+
+/* ==========================================================
+   ERROR
+========================================================== */
+
+.errorBox{
+
+    background:#fff3f3;
+
+    border:1px solid #ffd4d4;
+
+    border-left:5px solid #ef4444;
+
+    border-radius:14px;
+
+    padding:15px 18px;
+
+    animation:fadeIn .35s ease;
+
+}
+
+.errorText{
+
+    color:#dc2626;
+
+    font-size:14px;
+
+    font-weight:600;
+
+    line-height:1.6;
+
+    margin:0;
+
+}
+
+/* ==========================================================
+   FOOTER
+========================================================== */
+
+.footerArea{
+
+    margin-top:45px;
+
+}
+
+.divider{
+
+    display:flex;
+    align-items:center;
+    gap:18px;
+
+    margin-bottom:22px;
+
+}
+
+.divider span{
+
+    flex:1;
+    height:1px;
+    background:#e2e8f0;
+
+}
+
+.divider small{
+
+    color:#64748b;
+
+    font-size:12px;
+
+    font-weight:700;
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+
+}
+
+.footerText{
+
+    color:#64748b;
+
+    font-size:14px;
+
+    line-height:1.8;
+
+    margin-bottom:28px;
+
+}
+
+/* ==========================================================
+   INFO CARDS
+========================================================== */
+
+.footerInfo{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:15px;
+
+}
+
+.infoCard{
+
+    background:#f8fbff;
+
+    border:1px solid #e6eefb;
+
+    border-radius:16px;
+
+    padding:18px 15px;
+
+    text-align:center;
+
+    transition:.3s ease;
+
+    cursor:default;
+
+}
+
+.infoCard:hover{
+
+    transform:translateY(-4px);
+
+    background:#ffffff;
+
+    box-shadow:
+        0 12px 28px rgba(15,23,42,.08);
+
+}
+
+.infoCard h4{
+
+    font-size:15px;
+
+    color:#0f172a;
+
+    margin-bottom:8px;
+
+    font-weight:700;
+
+}
+
+.infoCard span{
+
+    color:#64748b;
+
+    font-size:13px;
+
+    line-height:1.5;
+
+}
+
+/* ==========================================================
+   INPUT POLISH
+========================================================== */
+
+.inputcontainer input{
+
+    transition:
+        border-color .25s,
+        box-shadow .25s,
+        background .25s;
+
+}
+
+.inputcontainer input:focus{
+
+    box-shadow:
+        0 0 0 4px rgba(0,87,216,.10);
+
+}
+
+/* ==========================================================
+   SCROLLBAR
+========================================================== */
+
+.rightContainer::-webkit-scrollbar{
+
+    width:8px;
+
+}
+
+.rightContainer::-webkit-scrollbar-thumb{
+
+    background:#cbd5e1;
+
+    border-radius:30px;
+
+}
+
+.rightContainer::-webkit-scrollbar-thumb:hover{
+
+    background:#94a3b8;
+
+}
+
+.rightContainer::-webkit-scrollbar-track{
+
+    background:transparent;
+
+}
+
+/* ==========================================================
+   ANIMATIONS
+========================================================== */
+
+@keyframes fadeIn{
+
+    from{
+
+        opacity:0;
+        transform:translateY(10px);
+
+    }
+
+    to{
+
+        opacity:1;
+        transform:translateY(0);
+
+    }
+
+}
+
+.loginCard{
+
+    animation:fadeIn .5s ease;
+
+}
+
+/* ==========================================================
+   LARGE TABLETS
+========================================================== */
+
+@media (max-width:1200px){
+
+    .leftContainer{
+        width:40%;
+    }
+
+    .heroContent{
+        width:86%;
+    }
+
+    .heroContent h1{
+        font-size:46px;
+    }
+
+    .heroContent p{
+        width:100%;
+        font-size:17px;
+    }
+
+    .rightContainer{
+        padding:40px;
+    }
+
+    .loginCard{
+        padding:45px;
+    }
+
+}
+
+/* ==========================================================
+   TABLETS
+========================================================== */
+
+@media (max-width:992px){
+
+    .screenContainer{
+        flex-direction:column;
+    }
+
+    .leftContainer{
+
+        width:100%;
+        min-height:340px;
+
+    }
+
+    .heroContent{
+
+        width:88%;
+        text-align:center;
+
+    }
+
+    .logoBox{
+
+        justify-content:center;
+        margin-bottom:35px;
+
+    }
+
+    .heroContent h1{
+
+        font-size:40px;
+
+    }
+
+    .heroContent p{
+
+        margin:0 auto 40px;
+
+    }
+
+    .heroFeatures{
+
+        align-items:center;
+
+    }
+
+    .feature{
+
+        justify-content:center;
+
+    }
+
+    .rightContainer{
+
+        width:100%;
+        padding:45px 25px;
+
+    }
+
+}
+
+/* ==========================================================
+   MOBILE
+========================================================== */
+
+@media (max-width:768px){
+
+    .leftContainer{
+
+        min-height:280px;
+
+    }
+
+    .heroContent{
+
+        width:90%;
+
+    }
+
+    .heroContent h1{
+
+        font-size:34px;
+
+    }
+
+    .heroContent p{
+
+        font-size:15px;
+        line-height:1.7;
+
+    }
+
+    .feature p{
+
+        font-size:15px;
+
+    }
+
+    .logoCircle{
+
+        width:58px;
+        height:58px;
+
+        font-size:24px;
+
+    }
+
+    .logoBox h2{
+
+        font-size:24px;
+
+    }
+
+    .rightContainer{
+
+        padding:30px 18px;
+
+    }
+
+    .rightformcontainer{
+
+        max-width:100%;
+
+    }
+
+    .loginCard{
+
+        padding:35px 25px;
+        border-radius:20px;
+
+    }
+
+    .headerSection{
+
+        margin-bottom:35px;
+
+    }
+
+    .headerSection h2{
+
+        font-size:30px;
+
+    }
+
+    .headerSection p{
+
+        font-size:15px;
+
+    }
+
+    .footerInfo{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .optionRow{
+
+        flex-direction:column;
+        align-items:flex-start;
+        gap:16px;
+
+    }
+
+}
+
+/* ==========================================================
+   SMALL MOBILE
+========================================================== */
+
+@media (max-width:550px){
+
+    .leftContainer{
+
+        display:none;
+
+    }
+
+    .screenContainer{
+
+        background:#f6f8fc;
+
+    }
+
+    .rightContainer{
+
+        padding:20px 14px;
+
+        align-items:flex-start;
+
+    }
+
+    .loginCard{
+
+        padding:28px 20px;
+
+        border-radius:18px;
+
+        box-shadow:
+            0 15px 40px rgba(15,23,42,.08);
+
+    }
+
+    .badge{
+
+        font-size:11px;
+
+        padding:6px 12px;
+
+    }
+
+    .headerSection h2{
+
+        font-size:28px;
+
+    }
+
+    .headerSection p{
+
+        font-size:14px;
+
+    }
+
+    .submit{
+
+        margin-bottom:22px;
+
+    }
+
+    .footerArea{
+
+        margin-top:35px;
+
+    }
+
+}
+
+/* ==========================================================
+   EXTRA SMALL DEVICES
+========================================================== */
+
+@media (max-width:380px){
+
+    .loginCard{
+
+        padding:22px 16px;
+
+    }
+
+    .headerSection h2{
+
+        font-size:24px;
+
+    }
+
+    .headerSection p{
+
+        font-size:13px;
+
+    }
+
+    .rememberMe{
+
+        font-size:13px;
+
+    }
+
+    .forgotPassword{
+
+        font-size:13px;
+
+    }
+
+    .infoCard{
+
+        padding:15px 12px;
+
+    }
+
+    .infoCard h4{
+
+        font-size:14px;
+
+    }
+
+    .infoCard span{
+
+        font-size:12px;
+
+    }
+
+}
+
+/* ==========================================================
+   ULTRA WIDE SCREENS
+========================================================== */
+
+@media (min-width:1600px){
+
+    .heroContent{
+
+        max-width:650px;
+
+    }
+
+    .heroContent h1{
+
+        font-size:64px;
+
+    }
+
+    .heroContent p{
+
+        font-size:20px;
+
+    }
+
+    .loginCard{
+
+        max-width:560px;
+
+        margin:auto;
+
+    }
+
+}
+
+/* ==========================================================
+   ACCESSIBILITY
+========================================================== */
+
+button:focus-visible,
+input:focus-visible{
+
+    outline:3px solid rgba(0,87,216,.25);
+    outline-offset:2px;
+
+}
+
+*{
+
+    -webkit-tap-highlight-color:transparent;
+
+}
+
+html{
+
+    scroll-behavior:smooth;
+
+}

@@ -1,0 +1,473 @@
+/*==========================================================
+    SIDEBAR CONTAINER
+==========================================================*/
+
+.sidebar {
+
+    width: 100%;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 24px 18px;
+
+    position: relative;
+
+    background: #ffffff;
+
+    border-right: 1px solid rgba(0,0,0,.06);
+
+    box-shadow: 10px 0 35px rgba(15,23,42,.06);
+
+    overflow: hidden;
+
+    transition: all .35s ease;
+
+}
+
+/*==========================================================
+    TOP SECTION
+==========================================================*/
+
+.topSection{
+
+    margin-bottom:40px;
+
+}
+
+.brandContainer{
+
+    display:flex;
+    align-items:center;
+    gap:15px;
+
+}
+
+.brandIcon{
+
+    width:58px;
+    height:58px;
+
+    border-radius:18px;
+
+    background:linear-gradient(135deg,#0f62fe,#4f8cff);
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    color:#fff;
+
+    box-shadow:0 12px 30px rgba(15,98,254,.25);
+
+}
+
+.brandIcon span{
+
+    font-size:30px;
+
+}
+
+.brandText{
+
+    display:flex;
+    flex-direction:column;
+
+}
+
+.brandText h2{
+
+    font-size:1.25rem;
+
+    font-weight:700;
+
+    margin:0;
+
+}
+
+.brandText small{
+
+    margin-top:4px;
+
+    color:#94a3b8;
+
+    font-size:.85rem;
+
+    letter-spacing:.3px;
+
+}
+
+/*==========================================================
+    MIDDLE SECTION
+==========================================================*/
+
+.middleSection{
+
+    flex:1;
+
+    overflow-y:auto;
+
+    padding-right:4px;
+
+}
+
+.middleSection ul{
+
+    list-style:none;
+
+    padding:0;
+
+    margin:0;
+
+}
+
+.middleSection::-webkit-scrollbar{
+
+    width:5px;
+
+}
+
+.middleSection::-webkit-scrollbar-thumb{
+
+    background:#d9d9d9;
+
+    border-radius:20px;
+
+}
+
+/*==========================================================
+    MENU ITEMS
+==========================================================*/
+
+.menuItem{
+
+    position:relative;
+
+    display:flex;
+    align-items:center;
+
+    gap:16px;
+
+    width:100%;
+
+    padding:14px 18px;
+
+    margin-bottom:10px;
+
+    border-radius:16px;
+
+    cursor:pointer;
+
+    transition:all .30s ease;
+
+    overflow:hidden;
+
+}
+
+.menuItem:hover{
+
+    background:rgba(15,98,254,.06);
+
+    transform:translateX(6px);
+
+}
+
+.menuItem::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+    top:12%;
+
+    width:4px;
+    height:76%;
+
+    border-radius:10px;
+
+    background:#0f62fe;
+
+    opacity:0;
+
+    transition:.3s ease;
+
+}
+
+.menuItem:hover::before{
+
+    opacity:.5;
+
+}
+
+.active{
+
+    box-shadow:0 12px 28px rgba(15,98,254,.18);
+
+}
+
+.active::before{
+
+    opacity:1;
+
+}
+
+.icon{
+
+    width:46px;
+    height:46px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    border-radius:14px;
+
+    font-size:24px;
+
+    background:rgba(15,98,254,.08);
+
+    transition:.3s ease;
+
+}
+
+.menuItem:hover .icon{
+
+    background:#0f62fe;
+
+    color:#fff !important;
+
+    transform:scale(1.08);
+
+}
+
+.listText{
+
+    flex:1;
+
+    font-size:1rem;
+
+    font-weight:600;
+
+    text-transform:capitalize;
+
+    transition:.25s ease;
+
+}
+
+/*==========================================================
+    TOOLTIP
+==========================================================*/
+
+.tooltip{
+
+    display:none;
+
+}
+
+
+/*==========================================================
+    FOOTER / LOGOUT
+==========================================================*/
+
+.endSection{
+
+    margin-top:24px;
+
+    padding-top:20px;
+
+    border-top:1px solid rgba(148,163,184,.18);
+
+}
+
+.logoutCard{
+
+    display:flex;
+    align-items:center;
+    gap:16px;
+
+    padding:14px 16px;
+
+    border-radius:18px;
+
+    cursor:pointer;
+
+    transition:all .30s ease;
+
+}
+
+.logoutCard:hover{
+
+    background:#fee2e2;
+
+    transform:translateY(-2px);
+
+}
+
+.logoutIcon{
+
+    width:48px;
+    height:48px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    border-radius:14px;
+
+    background:#f8fafc;
+
+    transition:.3s ease;
+
+}
+
+.logoutIcon span{
+
+    font-size:24px;
+
+    color:#ef4444;
+
+}
+
+.logoutCard:hover .logoutIcon{
+
+    background:#ef4444;
+
+}
+
+.logoutCard:hover .logoutIcon span{
+
+    color:#ffffff;
+
+}
+
+.logoutText{
+
+    display:flex;
+    flex-direction:column;
+
+}
+
+.logoutText h4{
+
+    margin:0;
+
+    font-size:1rem;
+
+    font-weight:700;
+
+    color:#1e293b;
+
+}
+
+.logoutText small{
+
+    margin-top:4px;
+
+    font-size:.8rem;
+
+    color:#94a3b8;
+
+}
+
+/*==========================================================
+    RESPONSIVE TABLET
+==========================================================*/
+
+@media screen and (max-width:900px){
+
+    .sidebar{
+
+        padding:20px 12px;
+
+    }
+
+    .brandText{
+
+        display:none;
+
+    }
+
+    .brandContainer{
+
+        justify-content:center;
+
+    }
+
+    .menuItem{
+
+        justify-content:center;
+
+        padding:14px 10px;
+
+    }
+
+    .listText{
+
+        display:none;
+
+    }
+
+    .logoutText{
+
+        display:none;
+
+    }
+
+    .logoutCard{
+
+        justify-content:center;
+
+        padding:12px;
+
+    }
+
+    .tooltip{
+
+        position:absolute;
+
+        left:78px;
+
+        top:50%;
+
+        transform:translateY(-50%);
+
+        display:flex;
+
+        align-items:center;
+        justify-content:center;
+
+        padding:8px 16px;
+
+        background:#111827;
+
+        color:#ffffff;
+
+        font-size:.85rem;
+
+        border-radius:10px;
+
+        white-space:nowrap;
+
+        opacity:0;
+
+        visibility:hidden;
+
+        pointer-events:none;
+
+        transition:.25s ease;
+
+        z-index:100;
+
+    }
+
+    .menuItem:hover .tooltip{
+
+        opacity:1;
+
+        visibility:visible;
+
+    }
+
+}

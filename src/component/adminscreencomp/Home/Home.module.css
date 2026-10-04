@@ -1,0 +1,645 @@
+/* ==========================================================
+   HOME SCREEN
+========================================================== */
+
+.homeScreen {
+    width: 100%;
+    min-height: 100vh;
+    background: #f5f7fb;
+    overflow-y: auto;
+}
+
+.timeline {
+    width: 100%;
+    padding: 35px;
+}
+
+/* ==========================================================
+   PAGE HEADER
+========================================================== */
+
+.pageHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 35px;
+    gap: 20px;
+}
+
+.pageHeader h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 8px;
+}
+
+.pageHeader p {
+    font-size: .98rem;
+    color: #64748b;
+    line-height: 1.7;
+    max-width: 650px;
+}
+
+/* ==========================================================
+   REFRESH BUTTON
+========================================================== */
+
+.refreshButton {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    padding: 12px 22px;
+
+    background: #0f62fe;
+    color: #fff;
+
+    border-radius: 12px;
+
+    font-size: .95rem;
+    font-weight: 600;
+
+    cursor: pointer;
+    transition: .3s;
+}
+
+.refreshButton:hover {
+    background: #0043ce;
+    transform: translateY(-2px);
+}
+
+.refreshButton svg {
+    font-size: 18px;
+}
+
+/* ==========================================================
+   STATISTICS
+========================================================== */
+
+.statsGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+    margin-bottom: 35px;
+}
+
+.statCard {
+    background: #fff;
+
+    border-radius: 18px;
+
+    padding: 24px;
+
+    display: flex;
+    align-items: center;
+    gap: 18px;
+
+    border: 1px solid #edf1f7;
+
+    box-shadow: 0 10px 35px rgba(15, 23, 42, .05);
+
+    transition: .3s ease;
+}
+
+.statCard:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 18px 45px rgba(15, 23, 42, .09);
+}
+
+.statIcon {
+    width: 60px;
+    height: 60px;
+
+    border-radius: 16px;
+
+    background: linear-gradient(135deg,
+            #0f62fe,
+            #4589ff);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: #fff;
+
+    font-size: 24px;
+}
+
+.statCard h3 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 4px;
+}
+
+.statCard span {
+    font-size: .92rem;
+    color: #64748b;
+}
+/* ==========================================================
+   SEARCH SECTION
+========================================================== */
+
+.filterSection{
+    margin-bottom:28px;
+}
+
+.searchContainer{
+    position:relative;
+    width:100%;
+    max-width:460px;
+}
+
+.searchIcon{
+    position:absolute;
+    left:18px;
+    top:50%;
+    transform:translateY(-50%);
+    color:#94a3b8;
+    font-size:20px;
+}
+
+.searchInput{
+    width:100%;
+    height:56px;
+
+    padding:0 18px 0 52px;
+
+    background:#ffffff;
+
+    border:1px solid #e2e8f0;
+    border-radius:14px;
+
+    font-size:15px;
+
+    transition:.3s ease;
+
+    box-shadow:0 3px 12px rgba(15,23,42,.04);
+}
+
+.searchInput::placeholder{
+    color:#94a3b8;
+}
+
+.searchInput:focus{
+    border-color:#0f62fe;
+    box-shadow:0 0 0 4px rgba(15,98,254,.12);
+}
+
+/* ==========================================================
+   TABLE CARD
+========================================================== */
+
+.tableCard{
+
+    background:#fff;
+
+    border-radius:22px;
+
+    padding:25px;
+
+    border:1px solid #edf2f7;
+
+    box-shadow:
+        0 12px 35px rgba(15,23,42,.05);
+
+    overflow:hidden;
+
+}
+
+/* ==========================================================
+   TABLE
+========================================================== */
+
+.tableContainer{
+    width:100%;
+    overflow-x:auto;
+}
+
+.userTable{
+    width:100%;
+    min-width:900px;
+    border-collapse:collapse;
+}
+
+.userTable thead tr{
+    background:#f8fafc;
+}
+
+.userTable th{
+
+    text-align:left;
+
+    padding:18px 20px;
+
+    font-size:14px;
+
+    font-weight:700;
+
+    color:#475569;
+
+    text-transform:uppercase;
+
+    letter-spacing:.5px;
+
+    border-bottom:1px solid #e2e8f0;
+
+}
+
+.userTable td{
+
+    padding:18px 20px;
+
+    font-size:15px;
+
+    color:#1e293b;
+
+    border-bottom:1px solid #f1f5f9;
+
+    vertical-align:middle;
+
+}
+
+.userTable tbody tr{
+
+    transition:.25s ease;
+
+}
+
+.userTable tbody tr:hover{
+
+    background:#f8fbff;
+
+}
+
+/* ==========================================================
+   EMAIL CELL
+========================================================== */
+
+.emailCell{
+
+    display:flex;
+    align-items:center;
+    gap:12px;
+
+}
+
+.emailCell svg{
+
+    width:36px;
+    height:36px;
+
+    padding:8px;
+
+    border-radius:10px;
+
+    background:#eef5ff;
+
+    color:#0f62fe;
+
+    flex-shrink:0;
+
+}
+
+.emailCell span{
+
+    word-break:break-word;
+
+}
+
+/* ==========================================================
+   EMPTY STATE
+========================================================== */
+
+.emptyState{
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+
+    padding:80px 20px;
+
+    text-align:center;
+
+}
+
+.emptyIcon{
+
+    font-size:70px;
+
+    color:#cbd5e1;
+
+    margin-bottom:20px;
+
+}
+
+.emptyState h3{
+
+    font-size:24px;
+
+    color:#1e293b;
+
+    margin-bottom:10px;
+
+}
+
+.emptyState p{
+
+    color:#64748b;
+
+    max-width:450px;
+
+    line-height:1.8;
+
+}
+
+/* ==========================================================
+   ACTION BUTTONS
+========================================================== */
+
+.actionButtons{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.editButton,
+.deleteButton{
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+
+    padding:10px 16px;
+
+    border:none;
+    outline:none;
+
+    border-radius:12px;
+
+    font-size:14px;
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.25s ease;
+}
+
+.editButton{
+
+    background:#eef5ff;
+    color:#0f62fe;
+
+}
+
+.editButton:hover{
+
+    background:#0f62fe;
+    color:#fff;
+
+    transform:translateY(-2px);
+
+}
+
+.deleteButton{
+
+    background:#fff1f2;
+    color:#dc2626;
+
+}
+
+.deleteButton:hover{
+
+    background:#dc2626;
+    color:#fff;
+
+    transform:translateY(-2px);
+
+}
+
+.editButton svg,
+.deleteButton svg{
+
+    font-size:16px;
+
+}
+
+/* ==========================================================
+   CUSTOM SCROLLBAR
+========================================================== */
+
+.tableContainer::-webkit-scrollbar{
+
+    height:8px;
+
+}
+
+.tableContainer::-webkit-scrollbar-track{
+
+    background:#f1f5f9;
+    border-radius:20px;
+
+}
+
+.tableContainer::-webkit-scrollbar-thumb{
+
+    background:#cbd5e1;
+    border-radius:20px;
+
+}
+
+.tableContainer::-webkit-scrollbar-thumb:hover{
+
+    background:#94a3b8;
+
+}
+
+/* ==========================================================
+   RESPONSIVE
+========================================================== */
+
+@media (max-width:1200px){
+
+    .statsGrid{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+}
+
+@media (max-width:992px){
+
+    .timeline{
+
+        padding:25px;
+
+    }
+
+    .pageHeader{
+
+        flex-direction:column;
+        align-items:flex-start;
+        gap:20px;
+
+    }
+
+    .refreshButton{
+
+        width:100%;
+        justify-content:center;
+
+    }
+
+}
+
+@media (max-width:768px){
+
+    .statsGrid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .tableCard{
+
+        padding:18px;
+
+    }
+
+    .searchContainer{
+
+        max-width:100%;
+
+    }
+
+    .searchInput{
+
+        height:52px;
+
+        font-size:14px;
+
+    }
+
+    .userTable{
+
+        min-width:700px;
+
+    }
+
+}
+
+@media (max-width:550px){
+
+    .timeline{
+
+        padding:18px;
+
+    }
+
+    .pageHeader h2{
+
+        font-size:1.7rem;
+
+    }
+
+    .pageHeader p{
+
+        font-size:.9rem;
+
+    }
+
+    .statCard{
+
+        padding:18px;
+
+    }
+
+    .statIcon{
+
+        width:52px;
+        height:52px;
+
+        font-size:20px;
+
+    }
+
+    .statCard h3{
+
+        font-size:1.6rem;
+
+    }
+
+    .tableCard{
+
+        border-radius:16px;
+
+        padding:15px;
+
+    }
+
+    .actionButtons{
+
+        gap:8px;
+
+    }
+
+    .editButton,
+    .deleteButton{
+
+        padding:9px 12px;
+
+        font-size:13px;
+
+    }
+
+    .emptyState{
+
+        padding:60px 15px;
+
+    }
+
+    .emptyIcon{
+
+        font-size:56px;
+
+    }
+
+}
+
+@media (max-width:400px){
+
+    .pageHeader h2{
+
+        font-size:1.45rem;
+
+    }
+
+    .statCard{
+
+        flex-direction:column;
+        text-align:center;
+
+    }
+
+    .statIcon{
+
+        margin-bottom:10px;
+
+    }
+
+    .searchInput{
+
+        padding-left:46px;
+
+    }
+
+    .searchIcon{
+
+        left:15px;
+
+    }
+
+}

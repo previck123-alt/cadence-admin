@@ -1,0 +1,460 @@
+import React, { useState, useEffect } from "react";
+import styles from "./UserEdit.module.css";
+
+import { useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
+
+import {
+    FiUser,
+    FiMail,
+    FiMapPin,
+    FiLock,
+    FiShield,
+    FiCreditCard,
+    FiCheckCircle,
+    FiSave
+} from "react-icons/fi";
+
+export const AdminUserEditComponent = ({ updateHandler }) => {
+
+    const [isData, setIsData] = useState(null);
+
+    const { color, usersList } = useSelector(
+        state => state.userAuth
+    );
+
+    const { id } = useParams();
+
+    // ===========================================
+    // FETCH USER
+    // ===========================================
+
+    useEffect(() => {
+
+        const dataObj = usersList.find(
+            data => data._id.toString() === id.toString()
+        );
+
+        setIsData(dataObj);
+
+    }, [id, usersList]);
+
+    // ===========================================
+    // INPUT HANDLER
+    // ===========================================
+
+    const handleChangeHandler = (e, field) => {
+
+        const value =
+            e.target.type === "checkbox"
+                ? e.target.checked
+                : e.target.value;
+
+        setIsData(prev => ({
+            ...prev,
+            [field]: value
+        }));
+
+    };
+
+    // ===========================================
+    // SUBMIT
+    // ===========================================
+
+    const submitHandler = (e) => {
+
+        e.preventDefault();
+
+        updateHandler(isData);
+
+    };
+
+    if (!isData) return null;
+
+    return (
+
+        <div
+            className={styles.homeScreen}
+            style={{ backgroundColor: color.background }}
+        >
+
+            <div
+                className={styles.timeline}
+                style={{ backgroundColor: color.background }}
+            >
+
+                <form
+                    className={styles.editForm}
+                    onSubmit={submitHandler}
+                >
+
+                    {/* =======================================
+                        PAGE HEADER
+                    ======================================== */}
+
+                    <div className={styles.pageHeader}>
+
+                        <div>
+
+                            <h2>Edit Customer</h2>
+
+                            <p>
+                                Update customer information,
+                                verification status and
+                                banking credentials.
+                            </p>
+
+                        </div>
+
+                        <button
+                            className={styles.updateButtonTop}
+                            type="submit"
+                        >
+
+                            <FiSave />
+
+                            Save Changes
+
+                        </button>
+
+                    </div>
+
+                    {/* =======================================
+                        PROFILE CARD
+                    ======================================== */}
+
+                    <div className={styles.profileCard}>
+
+                        <div className={styles.avatar}>
+                            <FiUser />
+                        </div>
+
+                        <div className={styles.profileInfo}>
+
+                            <h3>
+
+                                {isData.firstName || "Unknown"}{" "}
+                                {isData.lastName || ""}
+
+                            </h3>
+
+                            <p>{isData.email}</p>
+
+                            <span>
+
+                                User ID:
+                                {" "}
+                                {isData._id}
+
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                    {/* =======================================
+                        PERSONAL INFORMATION
+                    ======================================== */}
+
+                    <div className={styles.formSection}>
+
+                        <h3>
+
+                            <FiUser />
+
+                            Personal Information
+
+                        </h3>
+
+                        <div className={styles.gridTwo}>
+
+                            <div className={styles.inputGroup}>
+
+                                <label>First Name</label>
+
+                                <div className={styles.inputWrapper}>
+
+                                    <FiUser />
+
+                                    <input
+                                        type="text"
+                                        value={isData.firstName || ""}
+                                        onChange={(e) =>
+                                            handleChangeHandler(
+                                                e,
+                                                "firstName"
+                                            )
+                                        }
+                                    />
+
+                                </div>
+
+                            </div>
+
+                            <div className={styles.inputGroup}>
+
+                                <label>Last Name</label>
+
+                                <div className={styles.inputWrapper}>
+
+                                    <FiUser />
+
+                                    <input
+                                        type="text"
+                                        value={isData.lastName || ""}
+                                        onChange={(e) =>
+                                            handleChangeHandler(
+                                                e,
+                                                "lastName"
+                                            )
+                                        }
+                                    />
+
+                                </div>
+
+                            </div>
+
+                            <div className={styles.inputGroup}>
+
+                                <label>Email Address</label>
+
+                                <div className={styles.inputWrapper}>
+
+                                    <FiMail />
+
+                                    <input
+                                        type="email"
+                                        value={isData.email || ""}
+                                        onChange={(e) =>
+                                            handleChangeHandler(
+                                                e,
+                                                "email"
+                                            )
+                                        }
+                                    />
+
+                                </div>
+
+                            </div>
+
+                            <div className={styles.inputGroup}>
+
+                                <label>Password</label>
+
+                                <div className={styles.inputWrapper}>
+
+                                    <FiLock />
+
+                                    <input
+                                        type="text"
+                                        value={isData.password || ""}
+                                        onChange={(e) =>
+                                            handleChangeHandler(
+                                                e,
+                                                "password"
+                                            )
+                                        }
+                                    />
+
+                                </div>
+
+                            </div>
+
+                            <div className={styles.inputGroup}>
+
+                                <label>Country</label>
+
+                                <div className={styles.inputWrapper}>
+
+                                    <FiMapPin />
+
+                                    <input
+                                        type="text"
+                                        value={isData.country || ""}
+                                        onChange={(e) =>
+                                            handleChangeHandler(
+                                                e,
+                                                "country"
+                                            )
+                                        }
+                                    />
+
+                                </div>
+
+                            </div>
+
+                            <div className={styles.inputGroup}>
+
+                                <label>State</label>
+
+                                <div className={styles.inputWrapper}>
+
+                                    <FiMapPin />
+
+                                    <input
+                                        type="text"
+                                        value={isData.state || ""}
+                                        onChange={(e) =>
+                                            handleChangeHandler(
+                                                e,
+                                                "state"
+                                            )
+                                        }
+                                    />
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                                        {/* =======================================
+                        VERIFICATION STATUS
+                    ======================================== */}
+
+                    <div className={styles.formSection}>
+
+                        <h3>
+
+                            <FiCheckCircle />
+
+                            Verification Status
+
+                        </h3>
+
+                        <div className={styles.verificationGrid}>
+
+                            {[
+                                "emailVerified",
+                                "taxVerified",
+                                "bsaVerified",
+                                "otpVerified",
+                                "tacVerified",
+                                "nrcVerified",
+                                "imfVerified",
+                                "cotVerified",
+                            ].map((field) => (
+
+                                <div
+                                    key={field}
+                                    className={styles.verifyCard}
+                                >
+
+                                    <label>{field}</label>
+
+                                    <select
+                                        value={String(isData[field])}
+                                        onChange={(e) =>
+                                            setIsData(prev => ({
+                                                ...prev,
+                                                [field]: e.target.value === "true"
+                                            }))
+                                        }
+                                    >
+                                        <option value="true">
+                                            Verified
+                                        </option>
+
+                                        <option value="false">
+                                            Not Verified
+                                        </option>
+
+                                    </select>
+
+                                </div>
+
+                            ))}
+
+                        </div>
+
+                    </div>
+
+                    {/* =======================================
+                        BANKING CODES
+                    ======================================== */}
+
+                    <div className={styles.formSection}>
+
+                        <h3>
+
+                            <FiCreditCard />
+
+                            Banking Codes & Credentials
+
+                        </h3>
+
+                        <div className={styles.gridTwo}>
+
+                            {[
+                                "taxCode",
+                                "bsaCode",
+                                "oneTimePassword",
+                                "tacCode",
+                                "nrcCode",
+                                "imfCode",
+                                "cotCode",
+                            ].map((field) => (
+
+                                <div
+                                    key={field}
+                                    className={styles.inputGroup}
+                                >
+
+                                    <label>
+                                        {field
+                                            .replace(/([A-Z])/g, " $1")
+                                            .replace(/^./, str => str.toUpperCase())
+                                        }
+                                    </label>
+
+                                    <div className={styles.inputWrapper}>
+
+                                        <FiCreditCard />
+
+                                        <input
+                                            type="text"
+                                            value={isData[field] || ""}
+                                            onChange={(e) =>
+                                                handleChangeHandler(e, field)
+                                            }
+                                        />
+
+                                    </div>
+
+                                </div>
+
+                            ))}
+
+                        </div>
+
+                    </div>
+
+                    {/* =======================================
+                        FOOTER BUTTON
+                    ======================================== */}
+
+                    <div className={styles.buttonContainer}>
+
+                        <button
+                            type="submit"
+                            className={styles.updateButton}
+                        >
+
+                            <FiSave />
+
+                            Save Changes
+
+                        </button>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    );
+
+};
