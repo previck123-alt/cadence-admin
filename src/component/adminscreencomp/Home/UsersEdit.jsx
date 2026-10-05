@@ -10,7 +10,7 @@ import {
     FiMapPin,
     FiLock,
     FiShield,
-    FiCreditCard,
+    FiKey,
     FiCheckCircle,
     FiSave
 } from "react-icons/fi";
@@ -314,37 +314,20 @@ export const AdminUserEditComponent = ({ updateHandler }) => {
                     ======================================== */}
 
                     <div className={styles.formSection}>
-
                         <h3>
-
                             <FiCheckCircle />
-
                             Verification Status
-
                         </h3>
 
                         <div className={styles.verificationGrid}>
-
                             {[
                                 "emailVerified",
-                                "taxVerified",
-                                "bsaVerified",
                                 "otpVerified",
-                                "tacVerified",
-                                "nrcVerified",
-                                "imfVerified",
-                                "cotVerified",
                             ].map((field) => (
-
-                                <div
-                                    key={field}
-                                    className={styles.verifyCard}
-                                >
-
+                                <div key={field} className={styles.verifyCard}>
                                     <label>{field}</label>
-
                                     <select
-                                        value={String(isData[field])}
+                                        value={String(isData[field] ?? false)}
                                         onChange={(e) =>
                                             setIsData(prev => ({
                                                 ...prev,
@@ -352,82 +335,49 @@ export const AdminUserEditComponent = ({ updateHandler }) => {
                                             }))
                                         }
                                     >
-                                        <option value="true">
-                                            Verified
-                                        </option>
-
-                                        <option value="false">
-                                            Not Verified
-                                        </option>
-
+                                        <option value="true">Verified</option>
+                                        <option value="false">Not Verified</option>
                                     </select>
-
                                 </div>
-
                             ))}
-
                         </div>
-
                     </div>
 
                     {/* =======================================
-                        BANKING CODES
+                        TRANSACTION PIN
                     ======================================== */}
 
                     <div className={styles.formSection}>
-
                         <h3>
-
-                            <FiCreditCard />
-
-                            Banking Codes & Credentials
-
+                            <FiKey />
+                            Transaction PIN
                         </h3>
 
                         <div className={styles.gridTwo}>
-
-                            {[
-                                "taxCode",
-                                "bsaCode",
-                                "oneTimePassword",
-                                "tacCode",
-                                "nrcCode",
-                                "imfCode",
-                                "cotCode",
-                            ].map((field) => (
-
-                                <div
-                                    key={field}
-                                    className={styles.inputGroup}
-                                >
-
-                                    <label>
-                                        {field
-                                            .replace(/([A-Z])/g, " $1")
-                                            .replace(/^./, str => str.toUpperCase())
+                            <div className={styles.inputGroup}>
+                                <label>Set 4-Digit Transaction PIN</label>
+                                <div className={styles.inputWrapper}>
+                                    <FiKey />
+                                    <input
+                                        type="password"
+                                        inputMode="numeric"
+                                        maxLength={4}
+                                        autoComplete="new-password"
+                                        placeholder="Enter new PIN"
+                                        value={isData.transactionPin || ""}
+                                        onChange={(e) =>
+                                            handleChangeHandler(
+                                                { target: { value: e.target.value.replace(/\D/g, "").slice(0, 4), type: "text" } },
+                                                "transactionPin"
+                                            )
                                         }
-                                    </label>
-
-                                    <div className={styles.inputWrapper}>
-
-                                        <FiCreditCard />
-
-                                        <input
-                                            type="text"
-                                            value={isData[field] || ""}
-                                            onChange={(e) =>
-                                                handleChangeHandler(e, field)
-                                            }
-                                        />
-
-                                    </div>
-
+                                    />
                                 </div>
-
-                            ))}
-
+                                <small style={{ marginTop: 6, color: "#6b7280" }}>
+                                    Leave blank to keep the current PIN.
+                                </small>
+                            </div>
                         </div>
-
                     </div>
 
                     {/* =======================================

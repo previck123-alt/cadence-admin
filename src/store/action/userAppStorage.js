@@ -354,7 +354,8 @@ export const updateUser = (data)=>{
     } = getState().userAuth
 
     try {
-      let response = await fetch(`https://achiever-bank-backend.onrender.com/users`, {
+      const apiUrl = 'https://achiever-bank-backend.onrender.com'
+      let response = await fetch(`${apiUrl}/users`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
