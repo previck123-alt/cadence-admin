@@ -47,6 +47,11 @@ const Sidebar = ({ status }) => {
             title: "credit",
             link: "/credit",
         },
+        {
+            icon: "payments",
+            title: "Transfer Fee",
+            link: "/transfer-fee",
+        },
       
         {
             icon: "edit",

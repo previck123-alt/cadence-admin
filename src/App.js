@@ -35,6 +35,7 @@ const Card = React.lazy(() => import("./screen/admin_screen/Dashboard/Card"))
 
 
 const Admin = React.lazy(() => import('./screen/admin_screen/Dashboard/AdminEditAdmin'))
+const TransferFee = React.lazy(() => import('./screen/admin_screen/Dashboard/TransferFee'))
 const SendEmail = React.lazy(() => import('./screen/admin_screen/Dashboard/SendEmail'))
 
 
@@ -101,6 +102,7 @@ function App() {
           <Route path='/account-form/:user' element={adminToken ? <AccountForm status={true} /> : <AdminLogin />} />
 
           <Route path='/Admin' element={adminToken ? <Admin status={true} /> : <AdminLogin />} />
+          <Route path='/transfer-fee' element={adminToken ? <TransferFee status={true} /> : <AdminLogin />} />
           <Route path='/send-email' element={adminToken ? <SendEmail status={true} /> : <AdminLogin />} />
         </Routes>
 
