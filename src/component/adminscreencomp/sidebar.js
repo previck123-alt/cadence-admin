@@ -33,11 +33,6 @@ const Sidebar = ({ status }) => {
             link: "/admin",
         },
         {
-            icon: "payments",
-            title: "transfer fee",
-            link: "/transfer-fee",
-        },
-        {
             icon: "history",
             title: "history",
             link: "/user-transactions",

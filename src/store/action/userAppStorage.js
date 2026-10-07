@@ -21,8 +21,6 @@ export const UPDATE_LOAN = 'UPDATE_LOAN'
 
 export const FETCH_CARD = 'FETCH_CARD'
 export const UPDATE_CARD = 'UPDATE_CARD'
-export const FETCH_TRANSFER_FEE = 'FETCH_TRANSFER_FEE'
-export const UPDATE_TRANSFER_FEE = 'UPDATE_TRANSFER_FEE'
 
 
 export const FETCH_ACCOUNTS = 'FETCH_ACCOUNTS'
@@ -1002,97 +1000,6 @@ export const updateAdmin = (data)=>{
     }
   }
 }
-
-
-export const fetchTransferFee = () => {
-  return async (dispatch, getState) => {
-    const { adminToken } = getState().userAuth;
-
-    try {
-      const apiUrl =
-        process.env.REACT_APP_API_URL || "http://localhost:8082";
-
-      const response = await fetch(`${apiUrl}/settings/transfer-fee`, {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          header: `${adminToken}`,
-        },
-      });
-
-      const data = await response.json();
-
-      if (!response.ok) {
-        return {
-          bool: false,
-          message: data.response || "Unable to load transfer fee.",
-        };
-      }
-
-      dispatch({
-        type: FETCH_TRANSFER_FEE,
-        payload: data.response.transferFee,
-      });
-
-      return {
-        bool: true,
-        message: data.response,
-      };
-    } catch (err) {
-      return {
-        bool: false,
-        message: err.message || "Network error",
-      };
-    }
-  };
-};
-
-
-export const updateTransferFee = (transferFee) => {
-  return async (dispatch, getState) => {
-    const { adminToken } = getState().userAuth;
-
-    try {
-      const apiUrl =
-        process.env.REACT_APP_API_URL || "http://localhost:8082";
-
-      const response = await fetch(`${apiUrl}/settings/transfer-fee`, {
-        method: "PATCH",
-        headers: {
-          "Content-Type": "application/json",
-          header: `${adminToken}`,
-        },
-        body: JSON.stringify({
-          transferFee: Number(transferFee),
-        }),
-      });
-
-      const data = await response.json();
-
-      if (!response.ok) {
-        return {
-          bool: false,
-          message: data.response || "Unable to update transfer fee.",
-        };
-      }
-
-      dispatch({
-        type: UPDATE_TRANSFER_FEE,
-        payload: data.response.transferFee,
-      });
-
-      return {
-        bool: true,
-        message: data.response,
-      };
-    } catch (err) {
-      return {
-        bool: false,
-        message: err.message || "Network error",
-      };
-    }
-  };
-};
 
 
 //credit and debit method
