@@ -1,0 +1,223 @@
+.page {
+  min-height: 100%;
+  padding: 34px;
+  color: #101828;
+}
+
+.header {
+  max-width: 1120px;
+  margin: 0 auto 24px;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: #667085;
+}
+
+.header h1 {
+  margin: 8px 0 7px;
+  font-size: 30px;
+  letter-spacing: -.04em;
+}
+
+.header p {
+  max-width: 650px;
+  margin: 0;
+  color: #667085;
+  line-height: 1.65;
+}
+
+.grid {
+  max-width: 1120px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 330px;
+  gap: 20px;
+}
+
+.card,
+.infoCard {
+  border: 1px solid #e7e9ee;
+  border-radius: 22px;
+  background: #fff;
+  box-shadow: 0 10px 35px rgba(16, 24, 40, .05);
+}
+
+.card {
+  padding: 28px;
+}
+
+.cardIcon {
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  border-radius: 14px;
+  background: #eef4ff;
+  color: #175cd3;
+  font-size: 22px;
+}
+
+.cardHeading h2 {
+  margin: 20px 0 6px;
+  font-size: 20px;
+}
+
+.cardHeading p {
+  margin: 0 0 25px;
+  color: #667085;
+  line-height: 1.6;
+}
+
+.label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #344054;
+}
+
+.moneyInput {
+  display: flex;
+  align-items: center;
+  height: 58px;
+  border: 1px solid #d0d5dd;
+  border-radius: 14px;
+  padding: 0 16px;
+  background: #fff;
+}
+
+.moneyInput span {
+  font-size: 18px;
+  font-weight: 700;
+  color: #667085;
+}
+
+.moneyInput input {
+  width: 100%;
+  border: 0;
+  outline: 0;
+  padding: 0 10px;
+  font-size: 20px;
+  font-weight: 700;
+  color: #101828;
+  background: transparent;
+}
+
+.preview {
+  margin-top: 18px;
+  padding: 16px;
+  border-radius: 15px;
+  background: #f8fafc;
+}
+
+.preview > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 7px 0;
+}
+
+.preview span {
+  color: #667085;
+  font-size: 13px;
+}
+
+.preview strong {
+  font-size: 13px;
+}
+
+.preview .total {
+  margin-top: 5px;
+  padding-top: 13px;
+  border-top: 1px solid #e4e7ec;
+}
+
+.preview .total span,
+.preview .total strong {
+  color: #101828;
+  font-weight: 800;
+}
+
+.saveButton {
+  width: 100%;
+  height: 52px;
+  margin-top: 20px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 9px;
+  border: 0;
+  border-radius: 13px;
+  background: #155eef;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.saveButton:disabled {
+  opacity: .55;
+  cursor: not-allowed;
+}
+
+.infoCard {
+  padding: 26px;
+  height: fit-content;
+}
+
+.infoLabel {
+  display: block;
+  margin-bottom: 10px;
+  color: #667085;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .1em;
+}
+
+.infoCard > strong {
+  display: block;
+  font-size: 38px;
+  letter-spacing: -.04em;
+}
+
+.infoCard p {
+  margin: 12px 0 0;
+  color: #667085;
+  font-size: 13px;
+  line-height: 1.65;
+}
+
+.error,
+.success {
+  margin-top: 14px;
+  padding: 11px 13px;
+  border-radius: 10px;
+  font-size: 13px;
+}
+
+.error {
+  background: #fff1f3;
+  color: #c01048;
+}
+
+.success {
+  background: #ecfdf3;
+  color: #027a48;
+}
+
+@media (max-width: 850px) {
+  .page {
+    padding: 22px 16px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

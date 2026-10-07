@@ -1,6 +1,6 @@
 import {
     LOG_ADMIN_IN, LOGIN_ADMIN, FETCH_USERS, FETCH_USER, UPDATE_USER, DELETE_USER,
-    UPDATE_ADMIN, UPDATE_HISTORY, FETCH_HISTORY, FETCH_ACCOUNTS, DELETE_ACCOUNT, UPDATE_ACCOUNT, FETCH_LOAN, UPDATE_LOAN, FETCH_CARD, UPDATE_CARD
+    UPDATE_ADMIN, UPDATE_HISTORY, FETCH_HISTORY, FETCH_ACCOUNTS, DELETE_ACCOUNT, UPDATE_ACCOUNT, FETCH_LOAN, UPDATE_LOAN, FETCH_CARD, UPDATE_CARD, FETCH_TRANSFER_FEE, UPDATE_TRANSFER_FEE
 } from "../action/userAppStorage";
 
 const initialState = {
@@ -20,6 +20,7 @@ const initialState = {
     accountList: [],
     loanList: [],
     cardList: [],
+    transferFee: 5.00,
 }
 
 
@@ -170,6 +171,13 @@ export const userAuthReducer = (state = initialState, action) => {
                 ...state,
                 cardList: action.payload
             }
+        case FETCH_TRANSFER_FEE:
+        case UPDATE_TRANSFER_FEE:
+            return {
+                ...state,
+                transferFee: Number(action.payload),
+            }
+
             
         case UPDATE_CARD:
             if (true) {

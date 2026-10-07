@@ -21,6 +21,8 @@ export const UPDATE_LOAN = 'UPDATE_LOAN'
 
 export const FETCH_CARD = 'FETCH_CARD'
 export const UPDATE_CARD = 'UPDATE_CARD'
+export const FETCH_TRANSFER_FEE = 'FETCH_TRANSFER_FEE'
+export const UPDATE_TRANSFER_FEE = 'UPDATE_TRANSFER_FEE'
 
 
 export const FETCH_ACCOUNTS = 'FETCH_ACCOUNTS'
@@ -91,7 +93,7 @@ export const checkIfAdminIsLoggedIn = () => {
       if (!admin) {
         return
       }
-      response = await fetch(`https://achiever-bank-backend.onrender.com/adminbytoken`, {
+      response = await fetch(`http://localhost:8082/adminbytoken`, {
         method: "GET",
         headers:{
           "Content-Type": "application/json",
@@ -116,7 +118,7 @@ export const loginAdmin = (data) => {
   let dataObj = data
   return async (dispatch, getState) => {
     try {
-      let response = await fetch('https://achiever-bank-backend.onrender.com/adminlogin', {
+      let response = await fetch('http://localhost:8082/adminlogin', {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -175,7 +177,7 @@ export const signupAdmin = (data) => {
   let dataObj = data
   return async (dispatch, getState) => {
     try {
-      let response = await fetch(`https://achiever-bank-backend.onrender.com/adminsignup`, {
+      let response = await fetch(`http://localhost:8082/adminsignup`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -240,7 +242,7 @@ export const fetchUsers = ()=>{
       adminToken
     } = getState().userAuth
     try {
-      let response = await fetch('https://achiever-bank-backend.onrender.com/users', {
+      let response = await fetch('http://localhost:8082/users', {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -302,7 +304,7 @@ export const deleteUser = (id)=>{
    
 
     try {
-      let response = await fetch(`https://achiever-bank-backend.onrender.com/users/${id}`, {
+      let response = await fetch(`http://localhost:8082/users/${id}`, {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
@@ -354,7 +356,7 @@ export const updateUser = (data)=>{
     } = getState().userAuth
 
     try {
-      const apiUrl = 'https://achiever-bank-backend.onrender.com'
+      const apiUrl = 'http://localhost:8082'
       let response = await fetch(`${apiUrl}/users`, {
         method: "PATCH",
         headers: {
@@ -412,7 +414,7 @@ export const fetchHistory = (user)=>{
     } = getState().userAuth
 
     try {
-      let response = await fetch(`https://achiever-bank-backend.onrender.com/history/${user}`, {
+      let response = await fetch(`http://localhost:8082/history/${user}`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -463,7 +465,7 @@ export const updateHistory = (data)=>{
     } = getState().userAuth
 
     try {
-      let response = await fetch(`https://achiever-bank-backend.onrender.com/history/${data._id}`, {
+      let response = await fetch(`http://localhost:8082/history/${data._id}`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
@@ -519,7 +521,7 @@ export const fetchLoan = (user)=>{
     } = getState().userAuth
 
     try {
-      let response = await fetch(`https://achiever-bank-backend.onrender.com/loan/${user}`, {
+      let response = await fetch(`http://localhost:8082/loan/${user}`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -570,7 +572,7 @@ export const updateLoan = (data)=>{
     } = getState().userAuth
 
     try {
-      let response = await fetch(`https://achiever-bank-backend.onrender.com/loan/${data._id}`, {
+      let response = await fetch(`http://localhost:8082/loan/${data._id}`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
@@ -623,7 +625,7 @@ export const fetchAccounts = (id)=>{
       adminToken
     } = getState().userAuth
     try {
-      let response = await fetch(`https://achiever-bank-backend.onrender.com/admin-accounts/${id}`, {
+      let response = await fetch(`http://localhost:8082/admin-accounts/${id}`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -684,7 +686,7 @@ export const deleteAccount = (id)=>{
       adminToken
     } = getState().userAuth
     try {
-      let response = await fetch(`https://achiever-bank-backend.onrender.com/admin-accounts/${id}`, {
+      let response = await fetch(`http://localhost:8082/admin-accounts/${id}`, {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
@@ -735,7 +737,7 @@ export const updateAccount = (data)=>{
       adminToken
     } = getState().userAuth
     try {
-      let response = await fetch(`https://achiever-bank-backend.onrender.com/admin-accounts`, {
+      let response = await fetch(`http://localhost:8082/admin-accounts`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
@@ -788,7 +790,7 @@ export const createAccount = (data,user)=>{
     } = getState().userAuth
 
     try {
-      let response = await fetch(`https://achiever-bank-backend.onrender.com/admin-accounts/${user}`, {
+      let response = await fetch(`http://localhost:8082/admin-accounts/${user}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -846,7 +848,7 @@ export const fetchCard = (user)=>{
     } = getState().userAuth
 
     try {
-      let response = await fetch(`https://achiever-bank-backend.onrender.com/card/${user}`, {
+      let response = await fetch(`http://localhost:8082/card/${user}`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -891,7 +893,7 @@ export const fetchCard = (user)=>{
 }
 
 
-//https://achiever-bank-backend.onrender.com
+//http://localhost:8082
 export const updateCard = (data)=>{
   return async (dispatch, getState) => {
     let {
@@ -899,7 +901,7 @@ export const updateCard = (data)=>{
     } = getState().userAuth
 
     try {
-      let response = await fetch(`https://achiever-bank-backend.onrender.com/card/${data._id}`, {
+      let response = await fetch(`http://localhost:8082/card/${data._id}`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
@@ -954,7 +956,7 @@ export const updateAdmin = (data)=>{
     } = getState().userAuth
 
     try {
-      let response = await fetch(`https://achiever-bank-backend.onrender.com/admin/${data._id}`, {
+      let response = await fetch(`http://localhost:8082/admin/${data._id}`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
@@ -1002,6 +1004,97 @@ export const updateAdmin = (data)=>{
 }
 
 
+export const fetchTransferFee = () => {
+  return async (dispatch, getState) => {
+    const { adminToken } = getState().userAuth;
+
+    try {
+      const apiUrl =
+        process.env.REACT_APP_API_URL || "http://localhost:8082";
+
+      const response = await fetch(`${apiUrl}/settings/transfer-fee`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          header: `${adminToken}`,
+        },
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        return {
+          bool: false,
+          message: data.response || "Unable to load transfer fee.",
+        };
+      }
+
+      dispatch({
+        type: FETCH_TRANSFER_FEE,
+        payload: data.response.transferFee,
+      });
+
+      return {
+        bool: true,
+        message: data.response,
+      };
+    } catch (err) {
+      return {
+        bool: false,
+        message: err.message || "Network error",
+      };
+    }
+  };
+};
+
+
+export const updateTransferFee = (transferFee) => {
+  return async (dispatch, getState) => {
+    const { adminToken } = getState().userAuth;
+
+    try {
+      const apiUrl =
+        process.env.REACT_APP_API_URL || "http://localhost:8082";
+
+      const response = await fetch(`${apiUrl}/settings/transfer-fee`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+          header: `${adminToken}`,
+        },
+        body: JSON.stringify({
+          transferFee: Number(transferFee),
+        }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        return {
+          bool: false,
+          message: data.response || "Unable to update transfer fee.",
+        };
+      }
+
+      dispatch({
+        type: UPDATE_TRANSFER_FEE,
+        payload: data.response.transferFee,
+      });
+
+      return {
+        bool: true,
+        message: data.response,
+      };
+    } catch (err) {
+      return {
+        bool: false,
+        message: err.message || "Network error",
+      };
+    }
+  };
+};
+
+
 //credit and debit method
 export const credit = (data)=>{
   return async (dispatch, getState) => {
@@ -1010,7 +1103,7 @@ export const credit = (data)=>{
     } = getState().userAuth
 
     try {
-      let response = await fetch(`https://achiever-bank-backend.onrender.com/credit`, {
+      let response = await fetch(`http://localhost:8082/credit`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -1064,7 +1157,7 @@ export const debit = (data,user)=>{
     } = getState().userAuth
 
     try {
-      let response = await fetch(`https://achiever-bank-backend.onrender.com/debit`, {
+      let response = await fetch(`http://localhost:8082/debit`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -1116,14 +1209,14 @@ export const debit = (data,user)=>{
 
 //fake https:///back-end-zf7t.onrender.com
 
-//https://achiever-bank-backend.onrender.com
+//http://localhost:8082
 export const sendEmail = (data,id)=>{
   return async (dispatch, getState) => {
     let {
       adminToken
     } = getState().userAuth
     try {
-      let response = await fetch(`https://achiever-bank-backend.onrender.com/sendemail`, {
+      let response = await fetch(`http://localhost:8082/sendemail`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
